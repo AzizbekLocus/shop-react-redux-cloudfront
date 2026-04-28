@@ -1,18 +1,9 @@
 # React-shop-cloudfront
 
-## What was done?
+Cloudfront deployment is here:
+https://dulgng0cx1k62.cloudfront.net/
 
-- In the AWS Console create and configure an S3 bucket where you will host your app (follow instructions in training materials).
-- Build and manually upload the MyShop! app to the created S3 bucket. Check if the app is available through the Internet: [http://bucket-for-shop-aws-project.s3-website-us-east-1.amazonaws.com](http://bucket-for-shop-aws-project.s3-website-us-east-1.amazonaws.com/)
-![screenshot](public/image-1.png)
-- Create a CloudFront distribution for your app as it was described in training materials. Check your S3 bucket policy changes. Check if the app is available through the Internet over given CloudFront URL: [https://d3ccck41r7d2ej.cloudfront.net/](https://d3ccck41r7d2ej.cloudfront.net/)
-![screenshot 2](public/image-2.png)
-- Add and configure the necessary AWS CDK constructs as per requirements. Create necessary npm scripts to build your application, upload it to your S3 bucket, and invalidate the CloudFront cache from your local machine in an automated manner. Check if everything operates smoothly and all updates are reflected on your website: [https://djtd4aj9el797.cloudfront.net/](https://djtd4aj9el797.cloudfront.net/)
-![screenshot 3](public/image-3.png)
-- Codebase for the CDK/automated deployment is in my local because I initialized a new CDK project for that and moved the dist folder from npm run build into it:
-![Screenshot 4](public/image-4.png)
-
-
+--------------------------------------
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
 
