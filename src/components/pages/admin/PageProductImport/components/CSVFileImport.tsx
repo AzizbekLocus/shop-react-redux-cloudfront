@@ -23,24 +23,24 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
   };
 
   const uploadFile = async () => {
+    if (!file) return;
     console.log("uploadFile to", url);
 
     // Get the presigned URL
-    // const response = await axios({
-    //   method: "GET",
-    //   url,
-    //   params: {
-    //     name: encodeURIComponent(file.name),
-    //   },
-    // });
-    // console.log("File to upload: ", file.name);
-    // console.log("Uploading to: ", response.data);
-    // const result = await fetch(response.data, {
-    //   method: "PUT",
-    //   body: file,
-    // });
-    // console.log("Result: ", result);
-    // setFile("");
+    const response = await fetch(
+      `${url}?name=${encodeURIComponent(file.name)}`
+    );
+    const presignedUrl = await response.text();
+    console.log("File to upload: ", file.name);
+    console.log("Uploading to: ", presignedUrl);
+
+    // PUT the file directly to S3 via the presigned URL
+    const result = await fetch(presignedUrl, {
+      method: "PUT",
+      body: file,
+    });
+    console.log("Result: ", result);
+    setFile(undefined);
   };
   return (
     <Box>
