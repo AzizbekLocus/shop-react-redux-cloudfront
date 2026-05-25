@@ -27,8 +27,14 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     console.log("uploadFile to", url);
 
     // Get the presigned URL
+    const authorization_token = localStorage.getItem('authorization_token');
     const response = await fetch(
-      `${url}?name=${encodeURIComponent(file.name)}`
+      `${url}?name=${encodeURIComponent(file.name)}`,
+      {
+        headers: {
+          Authorization: `Basic ${authorization_token}`,
+        },
+      }
     );
     const presignedUrl = await response.text();
     console.log("File to upload: ", file.name);
